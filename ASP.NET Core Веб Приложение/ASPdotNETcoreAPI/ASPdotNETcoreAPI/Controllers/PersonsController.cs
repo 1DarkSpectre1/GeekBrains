@@ -1,6 +1,7 @@
 ﻿using ASPdotNETcoreAPI.Response;
 using businesslogic.Interface;
 using datalayer;
+using datalayer.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -18,8 +19,8 @@ namespace ASPdotNETcoreAPI.Controllers
 
         private readonly ILogger<PersonsController> _logger;
 
-        private readonly IPersonsService _personsService;
-        public PersonsController(ILogger<PersonsController> logger, IPersonsService personsService)
+        private readonly PersonRepository _personsService;
+        public PersonsController(ILogger<PersonsController> logger, PersonRepository personsService)
         {
             _logger = logger;
             _personsService = personsService;
