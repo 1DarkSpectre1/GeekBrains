@@ -16,7 +16,7 @@ namespace datalayer.Repositories
             {
                 _context = context;
             }
-
+        
             public async Task<IEnumerable<Client>> GetClientAsync()
             {
                 return await _context.Clients.Where(p => p.Id > 0).ToArrayAsync();
