@@ -11,5 +11,6 @@ namespace WebApplicationContract_GB_.Entitys
         public string Name { get; set; }
         public DateTime DateCreate { get; set; }
         public int c_status_contract { get; set; }
+        public int id_client { get; set; }
     }
 }

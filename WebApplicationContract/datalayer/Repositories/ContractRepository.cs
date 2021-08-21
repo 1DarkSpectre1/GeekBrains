@@ -25,6 +25,11 @@ namespace datalayer.Repositories
             {
                 return await _context.Contracts.Where(p => p.Id == id).ToArrayAsync();
             }
+            public async Task<IEnumerable<Contract>> GetContractsByid_client(int id)
+            {
+                return await _context.Contracts.Where(p => p.id_client == id).ToArrayAsync();
+            }
+        
             public async Task<int> PostContract(Contract Contract)
             {
                 Contract UpdContract = _context.Contracts.Where(p => p.Id == Contract.Id).FirstOrDefault();

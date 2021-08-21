@@ -18,7 +18,7 @@ namespace datalayer
         public DbSet<Tasks> Tasks { get; set; }
         public DbSet<Status_contract> Status_contracts { get; set; }
         public DbSet<Status_Task> Status_Tasks { get; set; }
-
+        public DbSet<Work_employee> Work_employee { get; set; }
 
     }
 }

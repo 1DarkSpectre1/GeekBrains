@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebApplicationContract_GB_.Entitys
 {
-    public class Tasks
+    public class Work_employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int id_task { get; set; }
+        public int id_employee { get; set; }
         public DateTime DateCreate { get; set; }
-        public int c_status_task { get; set; }
-        public int id_contract { get; set; }
+        public float Timework { get; set; }
     }
 }
