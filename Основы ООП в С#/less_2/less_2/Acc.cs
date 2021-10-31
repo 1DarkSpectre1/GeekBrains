@@ -11,44 +11,68 @@ namespace less_2
         Кредит,
         Накопительный
     }
+
+    
     class Acc
     {
         
-        private int _numAcc;
+        private readonly int _numAcc;
         private double _balance;
-        private type_acc _typeAcc;
+        private readonly type_acc _typeAcc;
+        private static int _globalnum = 1;
 
-        public Acc(int numAcc, double balance, type_acc typeAcc)
+        public Acc( double balance, type_acc typeAcc)
         {
-            this._numAcc = numAcc;
+            this._numAcc = this.generateNumAcc;
             this._balance = balance;
             this._typeAcc = typeAcc;
         }
-
-        public double Balance
+        public Acc(double balance)
         {
-            get
-            {
-                return _balance;
-            }
-            set
-            {
-                this._balance = value;
-            }
+            this._numAcc = this.generateNumAcc;
+            this._balance = balance;
+            this._typeAcc = type_acc.Кредит;
         }
-        public int NumAcc
+        public Acc(type_acc typeAcc)
         {
-            get
-            {
-                return this._numAcc;
-            }
+            this._numAcc = this.generateNumAcc;
+            this._balance = 0.0;
+            this._typeAcc = typeAcc;
         }
-        public type_acc TypeAcc
+        public Acc()
         {
-            get
-            {
-                return this._typeAcc;
-            }
+            this._numAcc = this.generateNumAcc;
+            this._balance = 0.0;
+            this._typeAcc = type_acc.Кредит;
         }
+        private int generateNumAcc => _globalnum++;
+        public double Balance { get => _balance; set => _balance = value; }   
+        public int NumAcc => _numAcc;
+        public type_acc TypeAcc => _typeAcc;
+        /// <summary>
+        /// метод снятия средсв
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>Возвращает -1 при неудаче и 1 при успехе</returns>
+        public int TakeAcc(double value)
+        {
+            if (_balance < value)
+            {
+                return -1;
+            }
+            _balance -= value;
+            return 1;
+        }
+        /// <summary>
+        /// Метод внесения средств на счёт
+        /// </summary>
+        /// <param name="value"></param>
+        public void DepositAcc(double value)
+        {
+            
+            _balance += value;
+            
+        }
+        
     }
 }
