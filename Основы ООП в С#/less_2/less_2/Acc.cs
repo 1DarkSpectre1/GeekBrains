@@ -73,6 +73,18 @@ namespace less_2
             _balance += value;
             
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="acc"> номер счёта с которого переводят деньги</param>
+        /// <param name="value">сумма перевода</param>
+        public void MoneyTransfer(Acc acc,double value)
+        {
+            if (acc.TakeAcc(value) == 1)
+            {
+                _balance += value;
+            } 
+        }
         
     }
 }
