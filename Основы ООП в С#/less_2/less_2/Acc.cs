@@ -108,6 +108,6 @@ namespace less_2
         {
             return (acc1.NumAcc != acc2.NumAcc || acc1.Balance != acc2.Balance || acc1.TypeAcc != acc2.TypeAcc);
         }
-
+        public override string ToString() => $"Номер счёта: {NumAcc}, Баланс: {Balance}, Тип счёта:{TypeAcc}";
     }
 }
