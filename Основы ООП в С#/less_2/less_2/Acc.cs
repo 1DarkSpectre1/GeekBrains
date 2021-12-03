@@ -73,6 +73,30 @@ namespace less_2
             _balance += value;
             
         }
-        
+
+        public override bool Equals(object obj)
+        {
+            return obj is Acc acc &&
+                   Balance == acc.Balance &&
+                   NumAcc == acc.NumAcc &&
+                   TypeAcc == acc.TypeAcc;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Balance, NumAcc, TypeAcc);
+        }
+
+        public static bool operator ==(Acc acc1, Acc acc2)
+        {
+            return (acc1.NumAcc == acc2.NumAcc && acc1.Balance==acc2.Balance && acc1.TypeAcc==acc2.TypeAcc);
+        }
+
+        public static bool operator !=(Acc acc1, Acc acc2)
+        {
+            return (acc1.NumAcc != acc2.NumAcc || acc1.Balance != acc2.Balance || acc1.TypeAcc != acc2.TypeAcc);
+        }
+
+
     }
 }
